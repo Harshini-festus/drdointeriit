@@ -22,7 +22,7 @@ from prius_msgs.msg import Control
 
 max_vel = 6.0 # maximum linear velocity
 global steer
-k = 1.0 # constant for relating look ahead distance and velocity
+k = 0.0 # constant for relating look ahead distance and velocity
 wheelbase = 1.983 # wheel base for the vehicle
 d_lookahead = 0.1 # look ahead distance to calculate target point on path
 global n

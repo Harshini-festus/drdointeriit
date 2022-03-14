@@ -28,9 +28,14 @@ output = 0
 wheelbase = 1.958  # in meters
 radius = 0 # radius of curvature
 steering_angle = 0
-kp = 1000.0 # proportional gain
-ki = 1.5 # integral gain
-kd = 1.5 # differential gain
+
+
+kp = 1500.0 # proportional gain
+ki = 200.0 # integral gain
+kd = 1.0 # differential gain
+
+
+
 acc_thershold = 0 # threshold velocity for acceleration
 brake_threshold = 0 # threshold veocity for braking
 global pub

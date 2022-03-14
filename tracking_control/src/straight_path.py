@@ -45,6 +45,7 @@ def main():
 	gets path coordinates and publishes them in form of an array.
 
 	'''
+	
 	x_offset = -12.220319
 	y_offset = 308.976703
 	# x_offset, y_offset = set_params(x_offset,y_offset)
@@ -53,7 +54,7 @@ def main():
 	path_pub = rospy.Publisher('astroid_path', Path, queue_size=100)
 	path = Path()
 
-	path.header.frame_id = rospy.get_param('~output_frame', 'base_link_ugv')
+	path.header.frame_id = rospy.get_param('~output_frame', 'map')
 	radius = rospy.get_param('~radius', 50.0) # radius of path
 	resolution = rospy.get_param('~resolution', 1.00) # constant jump value for parameter
 	holonomic = rospy.get_param('~holonomic', False)
@@ -63,8 +64,8 @@ def main():
 	has_initialize = True
 	# loop to get the path coordinates
 	for t in frange(0, 2, resolution):
-		x = int(offset_x) - t/2# some offset can be used to ensure according to test conditions
-		y = int(offset_y) + t/2
+		x = int(offset_x) - t# some offset can be used to ensure according to test conditions
+		y = int(offset_y)  - t
 		if has_initialize:
 			old_x = x
 			old_y = y
@@ -97,7 +98,6 @@ def main():
 	while not rospy.is_shutdown():
 		path.header.stamp = rospy.get_rostime()
 		path_pub.publish(path)
-		
 		r.sleep()
 	
 if __name__ == '__main__':

@@ -52,7 +52,7 @@ def arm_and_takeoff(aTargetAltitude):
             break
           time.sleep(1)
 
-
+# height to reach is given as input to this fuction
 arm_and_takeoff(5) 
 
 # class WallFollower(object):

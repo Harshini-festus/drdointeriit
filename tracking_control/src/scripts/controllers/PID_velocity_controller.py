@@ -29,9 +29,9 @@ output = 0
 wheelbase = 1.958  # in meters
 radius = 0 # radius of path
 steering_angle = 0 # steering angle in degrees
-kp = 1000.0 # proportional gain
-ki = 1.5 # integral gain
-kd = 1.8 # differential gain
+kp = 1500.0 # proportional gain
+ki = 200.0 # integral gain
+kd = 1.0 # differential gain
 acc_thershold = 0 # threshold for acceleration
 brake_threshold = 20 # threshold for brake
 global pub

@@ -232,6 +232,14 @@
         <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
       </control>
     </plugin>
+    <gazebo>
+    <plugin name="joint_state_publisher_drone" filename="libgazebo_ros_joint_state_publisher.so">
+      <robotNamespace>/drone</robotNamespace>
+      <jointName>iris/ground_truth/odometry_sensorgt_joint, iris_gimbal_mount, iris/imu_joint, rotor_0_joint , rotor_1_joint, rotor_2_joint, rotor_3_joint</jointName>
+      <updateRate>100.0</updateRate>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
+  </gazebo>
 
   </model>
 </sdf>

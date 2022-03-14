@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-
-
 # '''
 # Geometric method for path tracking with Stanley steering control
 # Link to paper- https://www.ri.cmu.edu/pub_files/2009/2/Automatic_Steering_Methods_for_Autonomous_Automobile_Path_Tracking.pdf
@@ -19,9 +17,7 @@ from std_msgs.msg import Int64
 # Publish topic  - cmd_delta (Twist)
 # Subscribe topic- base_pose_ground_truth , astroid_path
 
-
-
-kp = 5.0  #gain parameter
+kp = 1.0  #gain parameter
 alpha = 0.1
 wheelbase = 1.983  #in meters
 global steer
@@ -31,13 +27,10 @@ global ep_sum
 global ep_avg
 global x_p
 
-
-
 n=0
 ep_avg = 0
 ep_sum = 0
 ep_max = 0
-
 
 def callback_feedback(data):
     """
@@ -141,8 +134,8 @@ def callback_feedback(data):
 
     delta = delta * 180 / 3.14  #converting delta into degrees from radian
     print(delta)
-    delta = min(300,max(-300,delta))
-    # print(delta)
+    delta = min(30,max(-30,delta))
+    print(delta)
     cmd.angular.z = delta
     cross_err.linear.y = steer_err
     cross_err.linear.z = path_length[cp]
